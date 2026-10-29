@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halloween 單字對照表</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1rem;
+    background: #fff;
+    color: #2d3338;
+    font-family: "Nunito", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  }
+  main { max-width: 56rem; margin: 0 auto; }
+  h1 { margin: 0 0 1.5rem; text-align: center; font-size: 1.75rem; }
+
+  /* 兩欄排列：清單由上往下填滿左欄再接右欄 */
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0.75rem;
+    break-inside: avoid;
+    font-size: 1.0625rem;
+  }
+  /* 斑馬紋：隔行換底色，方便橫向對照英文與中文 */
+  li:nth-child(odd) { background: #f1f4f6; }
+  .en { font-weight: 700; }
+  .zh { color: #5b656d; text-align: right; }
+
+  @media (max-width: 36rem) {
+    ul { columns: 1; }
+  }
+  @media print {
+    body { padding: 0; }
+    li { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>🎃 Halloween 單字對照表</h1>
+  <ul id="vocab"></ul>
+</main>
+
+<script>
+  const words = [
+    ["body swap", "身體互換"],
+    ["chainsaw", "電鋸"],
+    ["coffin", "棺材"],
+    ["crystal ball", "水晶球"],
+    ["cyclops", "獨眼巨人"],
+    ["devil", "惡魔"],
+    ["devil horns", "惡魔角"],
+    ["dungeon", "地牢"],
+    ["flying broom", "飛天掃帚"],
+    ["goblin", "哥布林"],
+    ["graveyard", "墓園"],
+    ["haunted house", "鬼屋"],
+    ["headless", "無頭的"],
+    ["hourglass", "沙漏"],
+    ["jack-o'-lantern", "南瓜燈"],
+    ["magic circle", "魔法陣"],
+    ["medusa", "梅杜莎（蛇髮女妖）"],
+    ["mimic", "寶箱怪"],
+    ["nightmare", "惡夢"],
+    ["owl", "貓頭鷹"],
+    ["potion", "藥水"],
+    ["pumpkin carriage", "南瓜馬車"],
+    ["pumpkin carving", "雕刻南瓜"],
+    ["rotten", "腐爛的"],
+    ["rusty gate", "生鏽的大門"],
+    ["scorpion", "蠍子"],
+    ["sea monster", "海怪"],
+    ["skeleton", "骷髏"],
+    ["skeleton dance", "骷髏之舞"],
+    ["sleepwalking", "夢遊"],
+    ["slime", "史萊姆"],
+    ["spiderweb", "蜘蛛網"],
+    ["test tube", "試管"],
+    ["time loop", "時間迴圈"],
+    ["tombstone", "墓碑"],
+    ["vampire", "吸血鬼"],
+    ["voodoo doll", "巫毒娃娃"],
+    ["werewolf", "狼人"],
+    ["wizard", "巫師"],
+    ["zombie", "殭屍"],
+    ["bandage", "繃帶"],
+    ["witch", "女巫"],
+    ["broom", "掃帚"],
+    ["wand", "魔杖"],
+    ["bat", "蝙蝠"],
+    ["fairy", "精靈；仙子"],
+    ["tail", "尾巴"],
+    ["hook", "鉤子"],
+  ].sort((a, b) => a[0].localeCompare(b[0]));
+
+  document.getElementById("vocab").innerHTML = words
+    .map(([en, zh]) => `<li><span class="en">${en}</span><span class="zh">${zh}</span></li>`)
+    .join("");
+</script>
+</body>
+</html>
